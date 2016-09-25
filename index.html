@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Présentation Blog avec MeteorJS : Août 2016</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>Présentation du projet</h1>
+						<img src="images/accueil.png" />
+						  <aside class="notes">
+						  1 minute
+					        - pourquoi le blog : specs existantes , maquettes détaillées, fonctions basiques, avancées en //<br>
+					        - respect charte graphique
+					        - Meteor JS
+					    </aside>
+					</section>
+						<section>
+							<h2>Fonctionnalités basiques & avancées/bonus</h2>
+								
+						</section>
+					
+							<section>
+								<p>Gestion des articles</p>
+								<img src="images/mes-articles.png">
+
+								<aside class="notes">
+									Administrateurs connectés : <br>
+									- préparent/publient des articles <br>
+								</aside>
+
+							</section>
+						
+						
+						<section>
+								<p>Utilisateur connecté </p>
+								<img src="images/utilisateur-panneau.png">
+									<aside class="notes">
+									Utilisateurs connectés : <br>
+										- profil <br>
+										- commentaires <br>
+										
+								</aside>
+						</section>
+						<section>
+								<p>Commentaires et Likes</p>
+								<img src="images/commentLike.png">
+
+									<aside class="notes">
+										Utilisateurs connectés : <br>
+										- commenter <br>
+										- liker commentaire ou article <br>
+								</aside>
+						</section>
+						
+							<section>
+								<p>Profil</p>
+								<img src="images/profil.png">
+	 							<aside class="notes">
+									- Edition du profil utilisateur <br>
+								</aside>
+							</section>
+							<section>
+								<p>Commentaires</p>
+								<img src="images/newcomment.png">
+								 <aside class="notes">
+									- Ajouter / modifier mes commentaires <br>
+								</aside>
+							</section>
+							<section>
+								<p>J'aime reçus / postés</p>
+								<img src="images/commentaires-jaime-recus.png">
+										 <aside class="notes">
+										- J'aime postés : lister les commentaires que j'ai liké <br>
+										- J'aime reçus : lister les utilisateurs qui ont liké mes commentaires <br>
+									</aside>
+							</section>
+						
+						<section>
+							<h2>Bonus</h2>
+							
+								<p>gestion de <strong>n</strong> admins/visiteurs </p>
+								<img src="images/utilisateurs.png">
+									 <aside class="notes">
+										 plusieurs administrateurs au lieu d'1 
+									</aside>
+						</section>
+						<section>
+							<h2>éditeur wysiwyg</h2>
+								<img src="images/nouvel-article.png">
+						</section>
+						<section>
+								<h2>likes annulables & pas d'autocongratulation :) </h2>
+								<img src="images/selfie.png">
+						</section>
+				</section>
+				<section>
+					<section>
+						<h1>Organisation</h1>
+					</section>
+					<section>
+								<p>Tutos ...</p>
+								<img src="images/tutos.png">
+								<aside class="notes">
+								1 à 2 minutes <br>
+								 - monter en competences sur meteor (tutos, livre, docs ...) <br>
+								 - tests , retour en arrière, recherche de packages ... <br>
+								</aside>
+					</section>
+					<section>
+						<h2>Meteor c'est quoi ? </h2>
+						<img src="images/voiture.png">
+						<aside class="notes">
+								 - populaire sur github <br>
+								 - facile à apprendre <br>
+								 - Meteor = MEAN stack + Socket.IO + grunt/gulp + Cordova + hot code reload + et + <br>
+								 - temps réel : pas RESTful mais protocole de comm data client/serveur (DDP) <br>
+							
+								 - code + facile à maintenir <br>
+							</aside>
+					</section>
+					<section>
+						<p>index.html</p>
+						<img src="images/index.png">
+						<aside class="notes">
+								 aucune declaration à faire des librairies ...		 
+						</aside>
+					</section>
+					<section>
+						<h3>Arborescence </h3>
+						<img height="700" src="images/repertoires.png">
+							<aside class="notes">
+								- full stack : 1 seul langage (javascript) pr front/back/ et base MongoDB <br>
+								- code client / serveur /  et les 2   <br>
+							</aside>
+					</section>
+					<section>
+						<p>Appli visuellement + réactive</p>
+						<img src="images/compensation-de-latence.png">
+						<aside class="notes">
+								 compensation de latence : <br>
+								 coté serveur : MongoDB <br>
+								 coté client : mini pseudo bases (cache) avec recopie partielle des données <br>
+								 synchro automatique (sans code écrit ) <br>
+								 DDP <br>
+								 le client n'attend pas la réponse du serveur (pas de post/get ...) <br>
+						</aside>
+					</section>
+					<section>
+						<p>publications & souscriptions</p>
+						<img src="images/publications.png">
+						<aside class="notes">
+								 publications <br>
+								 souscriptions <br>
+								 mise à jour en temps réel <br>
+								 données mongo dispo directement dans front sans REST<br>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Utilisateurs</h1>
+						<code> {{> atForm}} </code>
+							<aside class="notes">
+								template de base pour avoir un formulaire avec 2 états (connexion/inscription)
+							</aside>
+						<img src="images/account.png">
+					</section>
+					<section>
+						<h2>Personnaliser le formulaire </h2>
+							<aside class="notes">
+								recherche comment faire sauce meteor et non tout refaire à la main
+							</aside>
+					</section>
+					<section>
+						<ul>
+							<li>ajouter et gérer le champ avatar</li>
+							<li>gérer des roles (utilisateur , admin) </li>
+						</ul>
+					</section>
+					<section>
+						<p>Gestion de l'avatar</p>
+						<img height="500" src="images/avatar1.png">
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>Démonstration</h1>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Choix techniques</h1>
+						<ul>
+							<li>Blaze</li>
+							<li>Materialize</li>
+							<li>images et avatars dans la base</li>
+						</ul>
+						<aside class="notes">
+							- autres fronts : react, angular <br>
+ 							- materialize vs bootstrap <br>
+						</aside>
+					</section>
+				</section>
+				
+				<section>
+					<h2>note YellowLabTools</h2>
+					<a href="http://yellowlab.tools/result/eihr3wx1qm"><img src="images/yellowLabTools.png"></a>
+
+					<aside class="notes">
+							- mesure performance  <br>
+							- qualité du code généré <br>
+							- suivi par experts google <br>
+						</aside>
+				</section>
+
+				
+				<section>
+					<h2>Merci de votre attention ;-) </h2>
+					<img src="images/end.jpg">
+				</section>
+
+				<section>
+					<section>
+						<h1>Annexes ...</h1>	
+					</section>
+					<section>
+						<h2>Inconvénients ...</h2>
+							<ul>
+								<li>meteor deploy  => meteor.com  Payant :-( </li>
+							</ul>
+					</section>
+					<section>
+						
+						<img src="images/todo.jpg">
+						<aside class="notes">
+							- cloud (Amazon S3) : <a href="https://github.com/CulturalMe/meteor-slingshot">Meteor Slingshot <br>
+							- sanitize sur les articles pour empecher scripts<br>
+						</aside>
+						
+					</section>
+					<section>
+							<h2>Liens utiles</h2>
+							<ul>
+								<li><a href="https://medium.com/@leonardykris/how-to-run-a-meteor-js-application-on-heroku-in-10-steps-7aceb12de234#.j4od24dlw">Deployer vers Heroku / Mlab en 10 étapes</a></li>
+								<li><a href="http://fr.discovermeteor.com">fr.discovermeteor.com</a></li>
+							</ul>
+					</section>
+					<section>
+						<h2> Un petit exemple de réactivité  </h2>
+							<code data-trim data-noescape>
+								var a = new ReactiveVar(0); <br>
+								Tracker.autorun(function () 
+								{  <br>
+									console.log(" a = " + a )  
+								} );  <br>
+
+								a.set(12); <br>
+								
+								a.set(3); <br>
+								
+							</code>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.configure({ slideNumber: true });
+
+		</script>
+	</body>
+</html>
